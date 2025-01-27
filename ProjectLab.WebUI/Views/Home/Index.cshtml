@@ -1,0 +1,33 @@
+﻿@model Person
+@section import {
+    <script>
+        btnDeleted = function () {
+            $.accept({
+                alert: true,
+                content: "Silme İşlemini Onaylıyormusunuz ? ",
+                action: function () {
+                    $.http.post("/Home/PersonDelete", { Id: 1 }, (response) => {
+
+                        alert(response);
+
+
+                    }, [".main"]);
+                }
+            });
+        }
+    </script>
+    <style>
+        body {
+        }
+    </style>
+}
+@section sidebar {
+
+    Home Page Sidebar
+}
+<button onclick="btnDeleted();">Clicked</button>
+<div>@Model.Id</div>
+<div>@Model.FirstName</div>
+<div>@Model.LastName</div>
+<h1></h1>
+<a></a>
