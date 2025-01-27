@@ -1,5 +1,6 @@
 using BundlerMinifier.TagHelpers; // CSS ve JavaScript dosyalarýný paketleme (bundling) ve küçültme (minification) iþlemleri için gerekli kütüphane.
 using NToastNotify;
+using ProjectLab.WebUI.Common;
 using WebMarkupMin.AspNetCore3; // HTML ve diðer çýktýlarý küçültmek (minify) için kullanýlan bir kütüphane.
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +38,8 @@ var services = builder.Services;
         options.AllowMinificationInDevelopmentEnvironment = false; // Geliþtirme ortamýnda HTML küçültme iþlemini devre dýþý býrakýr.
         options.AllowCompressionInDevelopmentEnvironment = false; // Geliþtirme ortamýnda HTML sýkýþtýrmayý devre dýþý býrakýr.
     }).AddHtmlMinification(); // HTML dosyalarýnýn küçültülmesini saðlar.
+
+    services.AddScoped<IAlert, Alert>(); // IAlert arayüzüne karþýlýk gelen Alert sýnýfýný ekler.
 }
 
 /// 

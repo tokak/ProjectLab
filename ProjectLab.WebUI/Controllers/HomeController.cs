@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
+using ProjectLab.WebUI.Common;
 using ProjectLab.WebUI.Models;
 
 namespace ProjectLab.WebUI.Controllers
 {
-    public class HomeController(IToastNotification toastNotification,ILogger<HomeController> logger) : Controller
+    public class HomeController(IAlert alert,ILogger<HomeController> logger) : Controller
     {
         //IToastNotification _toastNotification = toastNotification;
         //public HomeController(IToastNotification toastNotification)
@@ -14,11 +15,7 @@ namespace ProjectLab.WebUI.Controllers
 
         public IActionResult Index()
         {
-            toastNotification.AddInfoToastMessage("Hoş geldiniz!",new ToastrOptions
-            {
-                Title = "Bilgi",
-
-            });
+            alert.Info("Hoş geldiniz!");
             logger.Log(LogLevel.Error,"Burda bir hata meydana geldi");
 
             Person person = new Person

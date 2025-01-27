@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Components\" />
     <Folder Include="wwwroot\assets\files\" />
     <Folder Include="wwwroot\assets\images\" />
