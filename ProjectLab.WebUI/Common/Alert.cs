@@ -10,7 +10,7 @@ namespace ProjectLab.WebUI.Common
         void Warning(string msg);
     }
 
-    public class Alert(IToastNotification toastNotification) : IAlert, 
+    public class Alert(IToastNotification toastNotification) : IAlert
     {
         public void Error(string msg)
         {
